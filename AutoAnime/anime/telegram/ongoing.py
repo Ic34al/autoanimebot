@@ -21,6 +21,7 @@ HEADERS = {
 }
 
 from datetime import datetime
+from zoneinfo import ZoneInfo
 
 def fetch_schedule_list(source="aniwatch"):
     """Fetch daily schedule."""
@@ -35,7 +36,7 @@ def fetch_schedule_list(source="aniwatch"):
             session.proxies.update(proxy_dict)
 
         # Current date in YYYY-MM-DD format
-        date_str = datetime.now().strftime("%Y-%m-%d")
+        date_str = datetime.now(ZoneInfo("Asia/Kolkata")).strftime("%Y-%m-%d")
 
         # AJAX for schedule list, tzOffset = -330 for IST (Indian Standard Time)
         url = f"{BASE_URL}/ajax/schedule/list?date={date_str}&tzOffset=-330"

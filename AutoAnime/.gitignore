@@ -1,1 +1,6 @@
-__pycache__
+__pycache__/
+*.py[cod]
+*.session
+*.session-journal
+.env
+anime_downloads/
